@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprunki - Play Online | Game Portal</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f1b;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background-color: #1a1a2e;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border-bottom: 2px solid #e94560;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: #e94560;
+            text-transform: uppercase;
+        }
+
+        /* Game Container */
+        .game-wrapper {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 30px;
+            background-color: #16213e;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .responsive-iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 8px;
+        }
+
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Game Info Section */
+        .info-section {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 20px;
+            padding: 20px;
+            background: #1a1a2e;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .info-section h2 {
+            color: #e94560;
+            margin-top: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background-color: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #c62a47;
+            transform: translateY(-2px);
+        }
+
+        .fullscreen-btn {
+            background-color: #0f3460;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 14px;
+            color: #533483;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>SPRUNKI GAME HUB</h1>
+    </nav>
+
+    <div class="game-wrapper">
+        <div class="responsive-iframe-container">
+            <iframe 
+                id="gameFrame"
+                src="https://english.jobvn.com/pages/other/interpreter/index.html?url=https://cdn.jsdelivr.net/gh/gn-math/html@main/9.html" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <div class="controls">
+            <button class="btn fullscreen-btn" onclick="toggleFullScreen()">Go Fullscreen</button>
+            <button class="btn" onclick="reloadGame()">Reload Game</button>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <h2>About Sprunki</h2>
+        <p>Welcome to Sprunki! Dive into this creative musical experience where you can mix sounds, create unique beats, and explore different character styles. Use your mouse to interact with the elements and build your own masterpiece.</p>
+        
+        <h3>Instructions:</h3>
+        <ul>
+            <li><strong>Drag & Drop:</strong> Use your mouse to move items onto characters.</li>
+            <li><strong>Mute/Solo:</strong> Click on characters to adjust their sound.</li>
+            <li><strong>Bonus:</strong> Look for hidden combinations to unlock special animations!</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2024 Sprunki Fan Portal - Built for Fun
+    </footer>
+
+    <script>
+        // Function to make the game go fullscreen
+        function toggleFullScreen() {
+            var elem = document.getElementById("gameFrame");
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
+
+        // Function to reload the iframe
+        function reloadGame() {
+            var iframe = document.getElementById('gameFrame');
+            iframe.src = iframe.src;
+        }
+    </script>
+
+</body>
+</html>
